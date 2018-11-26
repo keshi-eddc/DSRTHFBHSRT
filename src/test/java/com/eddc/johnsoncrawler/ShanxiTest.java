@@ -21,14 +21,18 @@ public class ShanxiTest {
     @Autowired
     CrawlerService crawlerService;
 
+    //挂网目录
     @Test
     public void getShanxiDataTest() {
         Map<String, String> params = new HashMap<>();
         //申报企业名称
         params.put("comname", "强生");
         //登录后的cookie
-        params.put("Cookie", "ASP.NET_SessionId=2bmdrmyiqcwofsn03td05jx0");
-
+        params.put("Cookie", "ASP.NET_SessionId=40v551gpm3xc034twlethn3e");
+        //当前的账号名称
+        params.put("account", "强生上海");
+        //抓取批次
+        params.put("sync_number", "2018");
         crawlerService.getShanxiCatalogueData(params);
     }
 
