@@ -35,7 +35,7 @@ public class Shanxicatalogue {
 
     private Double gpartsPrice;
 
-    private Integer syncNumber;
+    private String syncNumber;
 
     private String searchKeyword;
 
@@ -173,12 +173,12 @@ public class Shanxicatalogue {
         this.gpartsPrice = gpartsPrice;
     }
 
-    public Integer getSyncNumber() {
+    public String getSyncNumber() {
         return syncNumber;
     }
 
-    public void setSyncNumber(Integer syncNumber) {
-        this.syncNumber = syncNumber;
+    public void setSyncNumber(String syncNumber) {
+        this.syncNumber = syncNumber == null ? null : syncNumber.trim();
     }
 
     public String getSearchKeyword() {

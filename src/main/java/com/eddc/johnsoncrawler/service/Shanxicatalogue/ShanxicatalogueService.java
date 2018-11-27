@@ -13,4 +13,9 @@ public interface ShanxicatalogueService {
 
     //查
 
+    Shanxicatalogue selectNewOneDate();
+
+    Shanxicatalogue selectNewOneDateByAccount(String account);
+
+
 }

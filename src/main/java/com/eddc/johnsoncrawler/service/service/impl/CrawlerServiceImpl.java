@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service(value = "CrawlerService")
@@ -50,13 +51,17 @@ public class CrawlerServiceImpl implements CrawlerService {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        //参数检查
+        //参数-抓取批次
+        //本次抓取批次
+        String sync_number = getSyncNumber(params.get("account"));
+        params.put("sync_number", sync_number);
+        logger.info("- 抓取批次：" + sync_number);
+        //登录后的cookie
         String cookie = params.get("Cookie");
-
         Map<String, String> headParams = new HashMap<>();
         headParams.put("Cookie", cookie);
 
-        int page = 1;
+        int page = 0;
         //已抓取数量
         int crawledNum = 0;
         //每页显示数量
@@ -64,6 +69,7 @@ public class CrawlerServiceImpl implements CrawlerService {
         Boolean isNotLast = true;
 
         while (isNotLast) {
+            page++;
             try {
                 /*
                  * 参数说明
@@ -81,7 +87,6 @@ public class CrawlerServiceImpl implements CrawlerService {
                         "&page=" + page +
                         "&sidx=" +
                         "&sord=asc";
-                logger.info("- 即将访问第：" + page + " 页,url:" + url);
                 String content = getPostContent(url, headParams, null);
                 System.out.println("content：" + content);
                 //解析页面
@@ -93,7 +98,7 @@ public class CrawlerServiceImpl implements CrawlerService {
 //                            19	账号	account
                         shanxicatalogueModel.setAccount(params.get("account"));
 //                            20	批次	sync_number
-                        shanxicatalogueModel.setSyncNumber(Integer.valueOf(params.get("sync_number")));
+                        shanxicatalogueModel.setSyncNumber(params.get("sync_number"));
 //                            21	搜索词	search_keyword
                         shanxicatalogueModel.setSearchKeyword(params.get("comname"));
                         //数据插入数据库
@@ -115,7 +120,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                 //判断最后一页 3
                 int totalPageNum = getShanxiCatalogueDataAlPageNum(content);
                 int allRecordsNum = getShanxiCatalogueDataAllRecordsNum(content);
-
+                logger.info("- 已经访问及解析第：" + page + " 页/" + totalPageNum + " ,url:" + url);
                 if (totalPageNum != 0) {
                     if (page >= totalPageNum) {
                         isNotLast = false;
@@ -127,13 +132,49 @@ public class CrawlerServiceImpl implements CrawlerService {
                         logger.info("- 最后一页:" + page + " 翻页完成。");
                     }
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
                 logger.error("！！！翻页是出现异常");
             }
-            page++;
         }
         logger.info("- 抓取完成。共抓了：" + page + " 页,数量：" + crawledNum);
+    }
+
+    /**
+     * @param
+     * @methodName getSyncNumber
+     * @description 获得 抓取批次
+     * @author keshi
+     * @date 2018年11月27日 13:50
+     */
+    public String getSyncNumber(String account) {
+        /*
+         * 抓取批次 （用于标识一天内 第几次抓的）
+         * 前提：更换账号的时候，要跟换USBkey,重新启动代码，
+         * */
+        SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
+        String dateStr = sf.format(new Date());
+//        dateStr = "20181128";
+        //本次抓取批次
+        String sync_number = "";
+        Shanxicatalogue shanxicatalogueNewOne = shanxicatalogueService.selectNewOneDateByAccount(account);
+        if (shanxicatalogueNewOne == null) {
+            //数据库没有 数据，首次抓取
+            sync_number = dateStr + "01";
+        } else {
+            String last_sync_number = shanxicatalogueNewOne.getSyncNumber();
+            if (last_sync_number.contains(dateStr)) {
+                //当天已经抓取过，批次加1
+                long last_sync_number_num = Long.valueOf(last_sync_number);
+                long sync_number_num = last_sync_number_num + 1;
+                sync_number = String.valueOf(sync_number_num);
+            } else {
+                //当天第一次抓取
+                sync_number = dateStr + "01";
+            }
+        }
+        return sync_number;
     }
 
     /**

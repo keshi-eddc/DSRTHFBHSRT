@@ -1,5 +1,6 @@
 package com.eddc.johnsoncrawler;
 
+import com.eddc.johnsoncrawler.service.Shanxicatalogue.ShanxicatalogueService;
 import com.eddc.johnsoncrawler.service.service.CrawlerService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +22,9 @@ public class ShanxiTest {
     @Autowired
     CrawlerService crawlerService;
 
+    @Autowired
+    ShanxicatalogueService shanxicatalogueService;
+
     //挂网目录
     @Test
     public void getShanxiDataTest() {
@@ -31,10 +35,8 @@ public class ShanxiTest {
         params.put("Cookie", "ASP.NET_SessionId=40v551gpm3xc034twlethn3e");
         //当前的账号名称
         params.put("account", "强生上海");
-        //抓取批次
-        params.put("sync_number", "2018");
+//        params.put("account", "迈思强");
         crawlerService.getShanxiCatalogueData(params);
     }
-
 
 }

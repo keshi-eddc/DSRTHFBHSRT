@@ -18,5 +18,13 @@ public class ShanxicatalogueServiceImpl implements ShanxicatalogueService {
         return shanxicatalogueMapper.insertSelective(shanxicatalogue);
     }
 
+    @Override
+    public Shanxicatalogue selectNewOneDate() {
+        return shanxicatalogueMapper.selectNewData();
+    }
 
+    @Override
+    public Shanxicatalogue selectNewOneDateByAccount(String account) {
+        return shanxicatalogueMapper.selectNewDataByAccount(account);
+    }
 }
