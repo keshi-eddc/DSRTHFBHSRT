@@ -176,12 +176,12 @@
         </trim>
     </insert>
 
+
     <select id="selectNewData" resultMap="BaseResultMap">
-          select TOP 1 * from Johnson_shanxi_catalogue order by insert_time desc
+       select TOP 1 * from Johnson_shanxi_catalogue order by insert_time desc
     </select>
 
-    <select id="selectNewDataByAccount" resultMap="BaseResultMap" parameterType="java.lang.String">
-          select TOP 1 * from Johnson_shanxi_catalogue where account = #{account} order by insert_time desc
+    <select id="selectNewDataByAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select TOP 1 * from Johnson_shanxi_catalogue where account = #{account} order by insert_time desc
     </select>
-
 </mapper>

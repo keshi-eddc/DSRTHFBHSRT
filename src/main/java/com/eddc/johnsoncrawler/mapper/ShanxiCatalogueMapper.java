@@ -9,5 +9,7 @@ public interface ShanxiCatalogueMapper {
 
     ShanxiCatalogue selectNewData();
 
+
     ShanxiCatalogue selectNewDataByAccount(String account);
+
 }
