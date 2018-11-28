@@ -3,7 +3,7 @@ package com.eddc.johnsoncrawler.model;
 import java.util.Date;
 
 public class ShanxiDiscussPrice {
-    private Long procureCatalogId;
+    private String procureCatalogId;
 
     private String gpartName;
 
@@ -43,12 +43,12 @@ public class ShanxiDiscussPrice {
 
     private Date updateTime;
 
-    public Long getProcureCatalogId() {
+    public String getProcureCatalogId() {
         return procureCatalogId;
     }
 
-    public void setProcureCatalogId(Long procureCatalogId) {
-        this.procureCatalogId = procureCatalogId;
+    public void setProcureCatalogId(String procureCatalogId) {
+        this.procureCatalogId = procureCatalogId == null ? null : procureCatalogId.trim();
     }
 
     public String getGpartName() {

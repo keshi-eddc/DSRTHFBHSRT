@@ -1,7 +1,7 @@
 package com.eddc.johnsoncrawler.service.Shanxicatalogue.impl;
 
-import com.eddc.johnsoncrawler.mapper.ShanxicatalogueMapper;
-import com.eddc.johnsoncrawler.model.Shanxicatalogue;
+import com.eddc.johnsoncrawler.mapper.ShanxiCatalogueMapper;
+import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
 import com.eddc.johnsoncrawler.service.Shanxicatalogue.ShanxicatalogueService;
 import org.springframework.stereotype.Service;
 
@@ -11,20 +11,20 @@ import javax.annotation.Resource;
 public class ShanxicatalogueServiceImpl implements ShanxicatalogueService {
 
     @Resource
-    ShanxicatalogueMapper shanxicatalogueMapper;
+    ShanxiCatalogueMapper shanxicatalogueMapper;
 
     @Override
-    public int insertShanxicatalogue(Shanxicatalogue shanxicatalogue) {
+    public int insertShanxicatalogue(ShanxiCatalogue shanxicatalogue) {
         return shanxicatalogueMapper.insertSelective(shanxicatalogue);
     }
 
     @Override
-    public Shanxicatalogue selectNewOneDate() {
+    public ShanxiCatalogue selectNewOneDate() {
         return shanxicatalogueMapper.selectNewData();
     }
 
     @Override
-    public Shanxicatalogue selectNewOneDateByAccount(String account) {
+    public ShanxiCatalogue selectNewOneDateByAccount(String account) {
         return shanxicatalogueMapper.selectNewDataByAccount(account);
     }
 }

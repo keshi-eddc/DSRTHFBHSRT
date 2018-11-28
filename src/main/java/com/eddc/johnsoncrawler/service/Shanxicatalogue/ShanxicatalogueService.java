@@ -1,11 +1,11 @@
 package com.eddc.johnsoncrawler.service.Shanxicatalogue;
 
-import com.eddc.johnsoncrawler.model.Shanxicatalogue;
+import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
 
 public interface ShanxicatalogueService {
 
     //增
-    int insertShanxicatalogue(Shanxicatalogue shanxicatalogue);
+    int insertShanxicatalogue(ShanxiCatalogue shanxicatalogue);
 
     //删
 
@@ -13,9 +13,9 @@ public interface ShanxicatalogueService {
 
     //查
 
-    Shanxicatalogue selectNewOneDate();
+    ShanxiCatalogue selectNewOneDate();
 
-    Shanxicatalogue selectNewOneDateByAccount(String account);
+    ShanxiCatalogue selectNewOneDateByAccount(String account);
 
 
 }

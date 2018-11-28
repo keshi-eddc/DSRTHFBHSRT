@@ -2,8 +2,8 @@ package com.eddc.johnsoncrawler.model;
 
 import java.util.Date;
 
-public class Shanxicatalogue {
-    private Integer procureCatalogId;
+public class ShanxiCatalogue {
+    private String procureCatalogId;
 
     private String gtypeName;
 
@@ -45,12 +45,12 @@ public class Shanxicatalogue {
 
     private Date updateTime;
 
-    public Integer getProcureCatalogId() {
+    public String getProcureCatalogId() {
         return procureCatalogId;
     }
 
-    public void setProcureCatalogId(Integer procureCatalogId) {
-        this.procureCatalogId = procureCatalogId;
+    public void setProcureCatalogId(String procureCatalogId) {
+        this.procureCatalogId = procureCatalogId == null ? null : procureCatalogId.trim();
     }
 
     public String getGtypeName() {

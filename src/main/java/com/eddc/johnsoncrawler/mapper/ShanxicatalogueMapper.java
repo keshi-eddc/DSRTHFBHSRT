@@ -1,14 +1,13 @@
 package com.eddc.johnsoncrawler.mapper;
 
-import com.eddc.johnsoncrawler.model.Shanxicatalogue;
+import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
 
-public interface ShanxicatalogueMapper {
-    int insert(Shanxicatalogue record);
+public interface ShanxiCatalogueMapper {
+    int insert(ShanxiCatalogue record);
 
-    int insertSelective(Shanxicatalogue record);
+    int insertSelective(ShanxiCatalogue record);
 
-    Shanxicatalogue selectNewData();
+    ShanxiCatalogue selectNewData();
 
-    Shanxicatalogue selectNewDataByAccount(String account);
-
+    ShanxiCatalogue selectNewDataByAccount(String account);
 }

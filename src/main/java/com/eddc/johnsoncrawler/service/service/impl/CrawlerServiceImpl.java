@@ -2,8 +2,8 @@ package com.eddc.johnsoncrawler.service.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
 import com.eddc.johnsoncrawler.model.ShanxiDiscussPrice;
-import com.eddc.johnsoncrawler.model.Shanxicatalogue;
 import com.eddc.johnsoncrawler.service.ShanxiDiscussPrice.ShanxiDiscussPriceService;
 import com.eddc.johnsoncrawler.service.Shanxicatalogue.ShanxicatalogueService;
 import com.eddc.johnsoncrawler.service.service.CrawlerService;
@@ -95,10 +95,10 @@ public class CrawlerServiceImpl implements CrawlerService {
                 String content = getPostContent(url, headParams, null);
                 System.out.println("content：" + content);
                 //解析页面
-                List<Shanxicatalogue> shanxicatalogueList = extraShanxiCatalogueData(content);
+                List<ShanxiCatalogue> shanxicatalogueList = extraShanxiCatalogueData(content);
                 if (shanxicatalogueList.size() > 0) {
                     for (int i = 0; i < shanxicatalogueList.size(); i++) {
-                        Shanxicatalogue shanxicatalogueModel = shanxicatalogueList.get(i);
+                        ShanxiCatalogue shanxicatalogueModel = shanxicatalogueList.get(i);
                         //设置属性
 //                            19	账号	account
                         shanxicatalogueModel.setAccount(params.get("account"));
@@ -163,7 +163,7 @@ public class CrawlerServiceImpl implements CrawlerService {
 //        dateStr = "20181128";
         //本次抓取批次
         String sync_number = "";
-        Shanxicatalogue shanxicatalogueNewOne = shanxicatalogueService.selectNewOneDateByAccount(account);
+        ShanxiCatalogue shanxicatalogueNewOne = shanxicatalogueService.selectNewOneDateByAccount(account);
         if (shanxicatalogueNewOne == null) {
             //数据库没有 数据，首次抓取
             sync_number = dateStr + "01";
@@ -247,8 +247,8 @@ public class CrawlerServiceImpl implements CrawlerService {
      * @author keshi
      * @date 2018年11月23日 15:28
      */
-    public List<Shanxicatalogue> extraShanxiCatalogueData(String content) {
-        List<Shanxicatalogue> shanxicatalogueList = new ArrayList<>(100);
+    public List<ShanxiCatalogue> extraShanxiCatalogueData(String content) {
+        List<ShanxiCatalogue> shanxicatalogueList = new ArrayList<>(100);
         //检验要解析的内容
         if (StringUtils.isNotBlank(content)) {
             //检验是否是正常页面
@@ -262,10 +262,9 @@ public class CrawlerServiceImpl implements CrawlerService {
                             try {
                                 JSONObject joLine = joarr.getJSONObject(i);
                                 //模型对象
-                                Shanxicatalogue shanxicatalogueModel = new Shanxicatalogue();
+                                ShanxiCatalogue shanxicatalogueModel = new ShanxiCatalogue();
 //                            1	组件编号	procure_catalog_id
-                                int procure_catalog_id = joLine.getIntValue("PROCURECATALOGID");
-                                shanxicatalogueModel.setProcureCatalogId(procure_catalog_id);
+                                shanxicatalogueModel.setProcureCatalogId(joLine.getString("PROCURECATALOGID"));
 //                            2	大类名称	gtype_name
                                 String gtype_name = joLine.getString("GTYPENAME");
                                 shanxicatalogueModel.setGtypeName(gtype_name);
@@ -355,7 +354,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                 if (code == 200) {
                     content = response.getResponseText();
                     if (StringUtils.isNotBlank(content)) {
-                        logger.info("- 页面正常");
+//                        logger.info("- 页面正常");
                     } else {
                         logger.error("返回空");
                     }
@@ -411,7 +410,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                         "&sidx=" +
                         "&sord=asc";
                 String content = getPostContent(url, headParams, null);
-                System.out.println("content：" + content);
+                logger.info("content：" + content);
                 //解析页面
                 List<ShanxiDiscussPrice> shanxiDiscussPriceList = extraShanxiDiscussPriceData(content, params);
                 if (shanxiDiscussPriceList.size() > 0) {
@@ -431,11 +430,6 @@ public class CrawlerServiceImpl implements CrawlerService {
                         shanxiDiscussPriceService.insertShanxiDiscussPrice(shanxiDiscussPriceModel);
                         crawledNum++;
                     }
-                    //判断最后一页 1
-                    if (shanxiDiscussPriceList.size() < rows) {
-                        isNotLast = false;
-                    }
-
                 } else {
                     //判断最后一页 2
                     //content：{"total":43,"records":1290,"rows":[]} shanxicatalogueList.size() = 0
@@ -458,7 +452,6 @@ public class CrawlerServiceImpl implements CrawlerService {
                         logger.info("- 最后一页:" + page + " 翻页完成。");
                     }
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
                 logger.error("！！！翻页是出现异常");
@@ -472,7 +465,7 @@ public class CrawlerServiceImpl implements CrawlerService {
     public List<ShanxiDiscussPrice> getClickContent(String procureCatalogIdStr, Map<String, String> params) {
         List<ShanxiDiscussPrice> shanxiDiscussPriceList = new ArrayList<>();
 
-        logger.info("----- 开始获取 点击  procure_catalog_id:" + procureCatalogIdStr + " 价格确认 按钮 的数据。");
+        logger.info("           开始获取 点击  procure_catalog_id:" + procureCatalogIdStr + " 价格确认 按钮 的数据。");
         //登录后的cookie
         String cookie = params.get("Cookie");
         Map<String, String> headParams = new HashMap<>();
@@ -509,7 +502,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                         "&sidx=" +
                         "&sord=asc";
                 String content = getPostContent(url, headParams, null);
-                System.out.println("content：" + content);
+                logger.info("           content：" + content);
                 //解析页面
                 List<ShanxiDiscussPrice> shanxiDiscussPriceClickList = extraShanxiDiscussPriceClickData(content);
                 if (shanxiDiscussPriceClickList.size() > 0) {
@@ -545,7 +538,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                 logger.error("！！！翻页是出现异常");
             }
         }
-        logger.info("----- " + procureCatalogIdStr + " 抓取完成。共抓了：" + page + " 页,数量：" + crawledNum);
+        logger.info("           " + procureCatalogIdStr + " 抓取完成。共抓了：" + page + " 页,数量：" + crawledNum);
         return shanxiDiscussPriceList;
     }
 
@@ -573,7 +566,7 @@ public class CrawlerServiceImpl implements CrawlerService {
                                 //模型对象
                                 ShanxiDiscussPrice shanxiDiscussPriceModel = new ShanxiDiscussPrice();
 //                                1	procure_catalog_id	组件编号
-                                shanxiDiscussPriceModel.setProcureCatalogId(joLine.getLong("PROCURECATALOGID"));
+                                shanxiDiscussPriceModel.setProcureCatalogId(joLine.getString("PROCURECATALOGID"));
 //                                2	gpart_name	组件名称
                                 shanxiDiscussPriceModel.setGpartName(joLine.getString("GPARTNAME"));
 //                                3	gpartreg_outlookc	注册证规格
@@ -593,9 +586,7 @@ public class CrawlerServiceImpl implements CrawlerService {
 //                                10 confirm_state	确认状态
                                 shanxiDiscussPriceModel.setConfirmState(joLine.getString("CONFIRMSTATE"));
 
-
-                                /*因为解析后 procure_catalog_id:20208，用于获取点击后的内容需要的是00020208
-                                 * 所以在此处获得PROCURECATALOGID string */
+                                //获取及解析，点击价格确认按钮 后的 数据
                                 String procure_catalog_id_str = joLine.getString("PROCURECATALOGID");
                                 //获取点击后的内容，返回 list
                                 List<ShanxiDiscussPrice> clickDiscussPriceModelList = getClickContent(procure_catalog_id_str, params);
@@ -632,7 +623,6 @@ public class CrawlerServiceImpl implements CrawlerService {
                                     //返回对象列表
                                     shanxiDiscussPriceList.add(shanxiDiscussPriceModel);
                                 }
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -687,7 +677,6 @@ public class CrawlerServiceImpl implements CrawlerService {
                                 shanxiDiscussPriceModel.setClickGpartregModel(joLine.getString("GPARTREGMODEL"));
                                 //返回对象列表
                                 shanxiDiscussPriceList.add(shanxiDiscussPriceModel);
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
