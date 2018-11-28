@@ -39,4 +39,18 @@ public class ShanxiTest {
         crawlerService.getShanxiCatalogueData(params);
     }
 
+    //议价信息
+    @Test
+    public void getgetShanxiDiscussPriceDataTest() {
+        Map<String, String> params = new HashMap<>();
+        //申报企业名称
+        params.put("comname", "强生");
+        //登录后的cookie
+        params.put("Cookie", "ASP.NET_SessionId=40v551gpm3xc034twlethn3e");
+        //当前的账号名称
+        params.put("account", "强生上海");
+
+        crawlerService.getShanxiDiscussPriceData(params);
+    }
+
 }

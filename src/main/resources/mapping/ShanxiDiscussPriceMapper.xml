@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eddc.johnsoncrawler.mapper.ShanxiDiscussPriceMapper">
+    <resultMap id="BaseResultMap" type="com.eddc.johnsoncrawler.model.ShanxiDiscussPrice">
+        <result column="procure_catalog_id" property="procureCatalogId" jdbcType="BIGINT"/>
+        <result column="gpart_name" property="gpartName" jdbcType="VARCHAR"/>
+        <result column="gpartreg_outlookc" property="gpartregOutlookc" jdbcType="VARCHAR"/>
+        <result column="gpartreg_model" property="gpartregModel" jdbcType="VARCHAR"/>
+        <result column="gpart_origin" property="gpartOrigin" jdbcType="VARCHAR"/>
+        <result column="gpartminp_unit" property="gpartminpUnit" jdbcType="VARCHAR"/>
+        <result column="code_count" property="codeCount" jdbcType="INTEGER"/>
+        <result column="com_name_sc" property="comNameSc" jdbcType="VARCHAR"/>
+        <result column="regcard_nm" property="regcardNm" jdbcType="VARCHAR"/>
+        <result column="confirm_state" property="confirmState" jdbcType="VARCHAR"/>
+        <result column="click_hos_name" property="clickHosName" jdbcType="VARCHAR"/>
+        <result column="click_gpart_price" property="clickGpartPrice" jdbcType="DOUBLE"/>
+        <result column="click_confirm_state" property="clickConfirmState" jdbcType="VARCHAR"/>
+        <result column="click_edup_time" property="clickEdupTime" jdbcType="VARCHAR"/>
+        <result column="click_gpartreg_outlookc" property="clickGpartregOutlookc" jdbcType="VARCHAR"/>
+        <result column="click_gpartreg_model" property="clickGpartregModel" jdbcType="VARCHAR"/>
+        <result column="sync_number" property="syncNumber" jdbcType="VARCHAR"/>
+        <result column="account" property="account" jdbcType="VARCHAR"/>
+        <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.eddc.johnsoncrawler.model.ShanxiDiscussPrice">
+    insert into Johnson_shanxi_discussPrice (procure_catalog_id, gpart_name, gpartreg_outlookc, 
+      gpartreg_model, gpart_origin, gpartminp_unit, 
+      code_count, com_name_sc, regcard_nm, 
+      confirm_state, click_hos_name, click_gpart_price, 
+      click_confirm_state, click_edup_time, click_gpartreg_outlookc, 
+      click_gpartreg_model, sync_number, account, 
+      insert_time, update_time)
+    values (#{procureCatalogId,jdbcType=BIGINT}, #{gpartName,jdbcType=VARCHAR}, #{gpartregOutlookc,jdbcType=VARCHAR}, 
+      #{gpartregModel,jdbcType=VARCHAR}, #{gpartOrigin,jdbcType=VARCHAR}, #{gpartminpUnit,jdbcType=VARCHAR}, 
+      #{codeCount,jdbcType=INTEGER}, #{comNameSc,jdbcType=VARCHAR}, #{regcardNm,jdbcType=VARCHAR}, 
+      #{confirmState,jdbcType=VARCHAR}, #{clickHosName,jdbcType=VARCHAR}, #{clickGpartPrice,jdbcType=DOUBLE}, 
+      #{clickConfirmState,jdbcType=VARCHAR}, #{clickEdupTime,jdbcType=VARCHAR}, #{clickGpartregOutlookc,jdbcType=VARCHAR}, 
+      #{clickGpartregModel,jdbcType=VARCHAR}, #{syncNumber,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.eddc.johnsoncrawler.model.ShanxiDiscussPrice">
+        insert into Johnson_shanxi_discussPrice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="procureCatalogId != null">
+                procure_catalog_id,
+            </if>
+            <if test="gpartName != null">
+                gpart_name,
+            </if>
+            <if test="gpartregOutlookc != null">
+                gpartreg_outlookc,
+            </if>
+            <if test="gpartregModel != null">
+                gpartreg_model,
+            </if>
+            <if test="gpartOrigin != null">
+                gpart_origin,
+            </if>
+            <if test="gpartminpUnit != null">
+                gpartminp_unit,
+            </if>
+            <if test="codeCount != null">
+                code_count,
+            </if>
+            <if test="comNameSc != null">
+                com_name_sc,
+            </if>
+            <if test="regcardNm != null">
+                regcard_nm,
+            </if>
+            <if test="confirmState != null">
+                confirm_state,
+            </if>
+            <if test="clickHosName != null">
+                click_hos_name,
+            </if>
+            <if test="clickGpartPrice != null">
+                click_gpart_price,
+            </if>
+            <if test="clickConfirmState != null">
+                click_confirm_state,
+            </if>
+            <if test="clickEdupTime != null">
+                click_edup_time,
+            </if>
+            <if test="clickGpartregOutlookc != null">
+                click_gpartreg_outlookc,
+            </if>
+            <if test="clickGpartregModel != null">
+                click_gpartreg_model,
+            </if>
+            <if test="syncNumber != null">
+                sync_number,
+            </if>
+            <if test="account != null">
+                account,
+            </if>
+            <if test="insertTime != null">
+                insert_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="procureCatalogId != null">
+                #{procureCatalogId,jdbcType=BIGINT},
+            </if>
+            <if test="gpartName != null">
+                #{gpartName,jdbcType=VARCHAR},
+            </if>
+            <if test="gpartregOutlookc != null">
+                #{gpartregOutlookc,jdbcType=VARCHAR},
+            </if>
+            <if test="gpartregModel != null">
+                #{gpartregModel,jdbcType=VARCHAR},
+            </if>
+            <if test="gpartOrigin != null">
+                #{gpartOrigin,jdbcType=VARCHAR},
+            </if>
+            <if test="gpartminpUnit != null">
+                #{gpartminpUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="codeCount != null">
+                #{codeCount,jdbcType=INTEGER},
+            </if>
+            <if test="comNameSc != null">
+                #{comNameSc,jdbcType=VARCHAR},
+            </if>
+            <if test="regcardNm != null">
+                #{regcardNm,jdbcType=VARCHAR},
+            </if>
+            <if test="confirmState != null">
+                #{confirmState,jdbcType=VARCHAR},
+            </if>
+            <if test="clickHosName != null">
+                #{clickHosName,jdbcType=VARCHAR},
+            </if>
+            <if test="clickGpartPrice != null">
+                #{clickGpartPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="clickConfirmState != null">
+                #{clickConfirmState,jdbcType=VARCHAR},
+            </if>
+            <if test="clickEdupTime != null">
+                #{clickEdupTime,jdbcType=VARCHAR},
+            </if>
+            <if test="clickGpartregOutlookc != null">
+                #{clickGpartregOutlookc,jdbcType=VARCHAR},
+            </if>
+            <if test="clickGpartregModel != null">
+                #{clickGpartregModel,jdbcType=VARCHAR},
+            </if>
+            <if test="syncNumber != null">
+                #{syncNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="account != null">
+                #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="insertTime != null">
+                #{insertTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectNewDataByAccountForiDiscussPrice" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select TOP 1 * from Johnson_shanxi_discussPrice where account = #{account} order by insert_time desc
+    </select>
+
+</mapper>
