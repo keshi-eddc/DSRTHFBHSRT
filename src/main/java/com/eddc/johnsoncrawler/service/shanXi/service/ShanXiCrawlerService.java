@@ -2,7 +2,7 @@ package com.eddc.johnsoncrawler.service.shanXi.service;
 
 import java.util.Map;
 
-public interface CrawlerService {
+public interface ShanXiCrawlerService {
     /*****陕西数据抓取*****/
     /*挂网目录*/
     void getShanxiCatalogueData(Map<String, String> params);

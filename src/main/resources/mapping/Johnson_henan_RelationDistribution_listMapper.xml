@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eddc.johnsoncrawler.mapper.heNan.Johnson_henan_RelationDistribution_listMapper" >
+  <resultMap id="BaseResultMap" type="com.eddc.johnsoncrawler.model.heNan.Johnson_henan_RelationDistribution_list" >
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="product_code" property="productCode" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="category_one" property="categoryOne" jdbcType="VARCHAR" />
+    <result column="category_two" property="categoryTwo" jdbcType="VARCHAR" />
+    <result column="directory_name" property="directoryName" jdbcType="VARCHAR" />
+    <result column="registration_certificate_product_name" property="registrationCertificateProductName" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="specifications" property="specifications" jdbcType="VARCHAR" />
+    <result column="product_model" property="productModel" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="production_enterprise" property="productionEnterprise" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="purchase_price_limit" property="purchasePriceLimit" jdbcType="DOUBLE" />
+    <result column="bid_winner" property="bidWinner" jdbcType="VARCHAR" />
+    <result column="confirm_status" property="confirmStatus" jdbcType="VARCHAR" />
+    <result column="agent" property="agent" jdbcType="VARCHAR" />
+    <result column="no_deal" property="noDeal" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="insert_Time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="update_Time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.eddc.johnsoncrawler.model.heNan.Johnson_henan_RelationDistribution_list" >
+    insert into Johnson_henan_RelationDistribution_list (project_name, product_code, category, 
+      category_one, category_two, directory_name, 
+      registration_certificate_product_name, brand, 
+      specifications, product_model, unit, 
+      production_enterprise, remarks, purchase_price_limit, 
+      bid_winner, confirm_status, agent, 
+      no_deal, account, insert_Time, 
+      update_Time)
+    values (#{projectName,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{categoryOne,jdbcType=VARCHAR}, #{categoryTwo,jdbcType=VARCHAR}, #{directoryName,jdbcType=VARCHAR}, 
+      #{registrationCertificateProductName,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{specifications,jdbcType=VARCHAR}, #{productModel,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{productionEnterprise,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{purchasePriceLimit,jdbcType=DOUBLE}, 
+      #{bidWinner,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=VARCHAR}, #{agent,jdbcType=VARCHAR}, 
+      #{noDeal,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{insertTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eddc.johnsoncrawler.model.heNan.Johnson_henan_RelationDistribution_list" >
+    insert into Johnson_henan_RelationDistribution_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="productCode != null" >
+        product_code,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="categoryOne != null" >
+        category_one,
+      </if>
+      <if test="categoryTwo != null" >
+        category_two,
+      </if>
+      <if test="directoryName != null" >
+        directory_name,
+      </if>
+      <if test="registrationCertificateProductName != null" >
+        registration_certificate_product_name,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="specifications != null" >
+        specifications,
+      </if>
+      <if test="productModel != null" >
+        product_model,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="productionEnterprise != null" >
+        production_enterprise,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="purchasePriceLimit != null" >
+        purchase_price_limit,
+      </if>
+      <if test="bidWinner != null" >
+        bid_winner,
+      </if>
+      <if test="confirmStatus != null" >
+        confirm_status,
+      </if>
+      <if test="agent != null" >
+        agent,
+      </if>
+      <if test="noDeal != null" >
+        no_deal,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="insertTime != null" >
+        insert_Time,
+      </if>
+      <if test="updateTime != null" >
+        update_Time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryOne != null" >
+        #{categoryOne,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryTwo != null" >
+        #{categoryTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="directoryName != null" >
+        #{directoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationCertificateProductName != null" >
+        #{registrationCertificateProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="specifications != null" >
+        #{specifications,jdbcType=VARCHAR},
+      </if>
+      <if test="productModel != null" >
+        #{productModel,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="productionEnterprise != null" >
+        #{productionEnterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasePriceLimit != null" >
+        #{purchasePriceLimit,jdbcType=DOUBLE},
+      </if>
+      <if test="bidWinner != null" >
+        #{bidWinner,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmStatus != null" >
+        #{confirmStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="noDeal != null" >
+        #{noDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null" >
+        #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

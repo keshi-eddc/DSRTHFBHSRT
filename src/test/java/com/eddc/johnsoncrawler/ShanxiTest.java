@@ -1,7 +1,7 @@
 package com.eddc.johnsoncrawler;
 
 import com.eddc.johnsoncrawler.service.shanXi.Shanxicatalogue.ShanxicatalogueService;
-import com.eddc.johnsoncrawler.service.shanXi.service.CrawlerService;
+import com.eddc.johnsoncrawler.service.shanXi.service.ShanXiCrawlerService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class ShanxiTest {
     Logger logger = LogManager.getLogger(ShanxiTest.class.getName());
 
     @Autowired
-    CrawlerService crawlerService;
+    ShanXiCrawlerService shanXiCrawlerService;
 
     @Autowired
     ShanxicatalogueService shanxicatalogueService;
@@ -36,12 +36,12 @@ public class ShanxiTest {
         //当前的账号名称
         params.put("account", "强生上海");
 //        params.put("account", "迈思强");
-        crawlerService.getShanxiCatalogueData(params);
+        shanXiCrawlerService.getShanxiCatalogueData(params);
     }
 
     //议价信息
     @Test
-    public void getgetShanxiDiscussPriceDataTest() {
+    public void getShanxiDiscussPriceDataTest() {
         Map<String, String> params = new HashMap<>();
         //申报企业名称
         params.put("comname", "强生");
@@ -50,7 +50,7 @@ public class ShanxiTest {
         //当前的账号名称
         params.put("account", "强生上海");
 
-        crawlerService.getShanxiDiscussPriceData(params);
+        shanXiCrawlerService.getShanxiDiscussPriceData(params);
     }
 
 }

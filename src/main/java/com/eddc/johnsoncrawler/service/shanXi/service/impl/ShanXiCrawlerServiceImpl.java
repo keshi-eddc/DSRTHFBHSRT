@@ -6,7 +6,7 @@ import com.eddc.johnsoncrawler.model.shanXi.ShanxiCatalogue;
 import com.eddc.johnsoncrawler.model.shanXi.ShanxiDiscussPrice;
 import com.eddc.johnsoncrawler.service.shanXi.ShanxiDiscussPrice.ShanxiDiscussPriceService;
 import com.eddc.johnsoncrawler.service.shanXi.Shanxicatalogue.ShanxicatalogueService;
-import com.eddc.johnsoncrawler.service.shanXi.service.CrawlerService;
+import com.eddc.johnsoncrawler.service.shanXi.service.ShanXiCrawlerService;
 import com.eddc.johnsoncrawler.utils.http.HttpClientUtil;
 import com.eddc.johnsoncrawler.utils.http.request.MultiPartFormRequest;
 import com.eddc.johnsoncrawler.utils.http.request.RequestMethod;
@@ -23,10 +23,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-@Service(value = "CrawlerService")
-public class CrawlerServiceImpl implements CrawlerService {
+@Service(value = "ShanXiCrawlerService")
+public class ShanXiCrawlerServiceImpl implements ShanXiCrawlerService {
 
-    Logger logger = LogManager.getLogger(CrawlerServiceImpl.class.getName());
+    Logger logger = LogManager.getLogger(ShanXiCrawlerServiceImpl.class.getName());
 
     @Autowired
     ShanxicatalogueService shanxicatalogueService;
