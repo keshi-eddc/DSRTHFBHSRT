@@ -1,12 +1,12 @@
-package com.eddc.johnsoncrawler.service.service.impl;
+package com.eddc.johnsoncrawler.service.shanXi.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
-import com.eddc.johnsoncrawler.model.ShanxiDiscussPrice;
-import com.eddc.johnsoncrawler.service.ShanxiDiscussPrice.ShanxiDiscussPriceService;
-import com.eddc.johnsoncrawler.service.Shanxicatalogue.ShanxicatalogueService;
-import com.eddc.johnsoncrawler.service.service.CrawlerService;
+import com.eddc.johnsoncrawler.model.shanXi.ShanxiCatalogue;
+import com.eddc.johnsoncrawler.model.shanXi.ShanxiDiscussPrice;
+import com.eddc.johnsoncrawler.service.shanXi.ShanxiDiscussPrice.ShanxiDiscussPriceService;
+import com.eddc.johnsoncrawler.service.shanXi.Shanxicatalogue.ShanxicatalogueService;
+import com.eddc.johnsoncrawler.service.shanXi.service.CrawlerService;
 import com.eddc.johnsoncrawler.utils.http.HttpClientUtil;
 import com.eddc.johnsoncrawler.utils.http.request.MultiPartFormRequest;
 import com.eddc.johnsoncrawler.utils.http.request.RequestMethod;

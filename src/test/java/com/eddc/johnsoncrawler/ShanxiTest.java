@@ -1,7 +1,7 @@
 package com.eddc.johnsoncrawler;
 
-import com.eddc.johnsoncrawler.service.Shanxicatalogue.ShanxicatalogueService;
-import com.eddc.johnsoncrawler.service.service.CrawlerService;
+import com.eddc.johnsoncrawler.service.shanXi.Shanxicatalogue.ShanxicatalogueService;
+import com.eddc.johnsoncrawler.service.shanXi.service.CrawlerService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;

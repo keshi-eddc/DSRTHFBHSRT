@@ -1,6 +1,6 @@
-package com.eddc.johnsoncrawler.mapper;
+package com.eddc.johnsoncrawler.mapper.shanXi;
 
-import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
+import com.eddc.johnsoncrawler.model.shanXi.ShanxiCatalogue;
 
 public interface ShanxiCatalogueMapper {
     int insert(ShanxiCatalogue record);
@@ -9,7 +9,5 @@ public interface ShanxiCatalogueMapper {
 
     ShanxiCatalogue selectNewData();
 
-
     ShanxiCatalogue selectNewDataByAccount(String account);
-
 }

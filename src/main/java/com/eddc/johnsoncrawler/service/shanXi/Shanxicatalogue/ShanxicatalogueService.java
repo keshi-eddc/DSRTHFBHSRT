@@ -1,6 +1,6 @@
-package com.eddc.johnsoncrawler.service.Shanxicatalogue;
+package com.eddc.johnsoncrawler.service.shanXi.Shanxicatalogue;
 
-import com.eddc.johnsoncrawler.model.ShanxiCatalogue;
+import com.eddc.johnsoncrawler.model.shanXi.ShanxiCatalogue;
 
 public interface ShanxicatalogueService {
 

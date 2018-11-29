@@ -1,9 +1,15 @@
-package com.eddc.johnsoncrawler.model;
+package com.eddc.johnsoncrawler.model.shanXi;
 
 import java.util.Date;
 
-public class ShanxiDiscussPrice {
+public class ShanxiCatalogue {
     private String procureCatalogId;
+
+    private String gtypeName;
+
+    private String sortName;
+
+    private String catalogueType;
 
     private String gpartName;
 
@@ -17,25 +23,21 @@ public class ShanxiDiscussPrice {
 
     private Integer codeCount;
 
+    private String comName;
+
     private String comNameSc;
 
     private String regcardNm;
 
-    private String confirmState;
+    private String regcardDed;
 
-    private String clickHosName;
+    private String procureCataState;
 
-    private Double clickGpartPrice;
-
-    private String clickConfirmState;
-
-    private String clickEdupTime;
-
-    private String clickGpartregOutlookc;
-
-    private String clickGpartregModel;
+    private Double gpartsPrice;
 
     private String syncNumber;
+
+    private String searchKeyword;
 
     private String account;
 
@@ -49,6 +51,30 @@ public class ShanxiDiscussPrice {
 
     public void setProcureCatalogId(String procureCatalogId) {
         this.procureCatalogId = procureCatalogId == null ? null : procureCatalogId.trim();
+    }
+
+    public String getGtypeName() {
+        return gtypeName;
+    }
+
+    public void setGtypeName(String gtypeName) {
+        this.gtypeName = gtypeName == null ? null : gtypeName.trim();
+    }
+
+    public String getSortName() {
+        return sortName;
+    }
+
+    public void setSortName(String sortName) {
+        this.sortName = sortName == null ? null : sortName.trim();
+    }
+
+    public String getCatalogueType() {
+        return catalogueType;
+    }
+
+    public void setCatalogueType(String catalogueType) {
+        this.catalogueType = catalogueType == null ? null : catalogueType.trim();
     }
 
     public String getGpartName() {
@@ -99,6 +125,14 @@ public class ShanxiDiscussPrice {
         this.codeCount = codeCount;
     }
 
+    public String getComName() {
+        return comName;
+    }
+
+    public void setComName(String comName) {
+        this.comName = comName == null ? null : comName.trim();
+    }
+
     public String getComNameSc() {
         return comNameSc;
     }
@@ -115,60 +149,28 @@ public class ShanxiDiscussPrice {
         this.regcardNm = regcardNm == null ? null : regcardNm.trim();
     }
 
-    public String getConfirmState() {
-        return confirmState;
+    public String getRegcardDed() {
+        return regcardDed;
     }
 
-    public void setConfirmState(String confirmState) {
-        this.confirmState = confirmState == null ? null : confirmState.trim();
+    public void setRegcardDed(String regcardDed) {
+        this.regcardDed = regcardDed == null ? null : regcardDed.trim();
     }
 
-    public String getClickHosName() {
-        return clickHosName;
+    public String getProcureCataState() {
+        return procureCataState;
     }
 
-    public void setClickHosName(String clickHosName) {
-        this.clickHosName = clickHosName == null ? null : clickHosName.trim();
+    public void setProcureCataState(String procureCataState) {
+        this.procureCataState = procureCataState == null ? null : procureCataState.trim();
     }
 
-    public Double getClickGpartPrice() {
-        return clickGpartPrice;
+    public Double getGpartsPrice() {
+        return gpartsPrice;
     }
 
-    public void setClickGpartPrice(Double clickGpartPrice) {
-        this.clickGpartPrice = clickGpartPrice;
-    }
-
-    public String getClickConfirmState() {
-        return clickConfirmState;
-    }
-
-    public void setClickConfirmState(String clickConfirmState) {
-        this.clickConfirmState = clickConfirmState == null ? null : clickConfirmState.trim();
-    }
-
-    public String getClickEdupTime() {
-        return clickEdupTime;
-    }
-
-    public void setClickEdupTime(String clickEdupTime) {
-        this.clickEdupTime = clickEdupTime == null ? null : clickEdupTime.trim();
-    }
-
-    public String getClickGpartregOutlookc() {
-        return clickGpartregOutlookc;
-    }
-
-    public void setClickGpartregOutlookc(String clickGpartregOutlookc) {
-        this.clickGpartregOutlookc = clickGpartregOutlookc == null ? null : clickGpartregOutlookc.trim();
-    }
-
-    public String getClickGpartregModel() {
-        return clickGpartregModel;
-    }
-
-    public void setClickGpartregModel(String clickGpartregModel) {
-        this.clickGpartregModel = clickGpartregModel == null ? null : clickGpartregModel.trim();
+    public void setGpartsPrice(Double gpartsPrice) {
+        this.gpartsPrice = gpartsPrice;
     }
 
     public String getSyncNumber() {
@@ -177,6 +179,14 @@ public class ShanxiDiscussPrice {
 
     public void setSyncNumber(String syncNumber) {
         this.syncNumber = syncNumber == null ? null : syncNumber.trim();
+    }
+
+    public String getSearchKeyword() {
+        return searchKeyword;
+    }
+
+    public void setSearchKeyword(String searchKeyword) {
+        this.searchKeyword = searchKeyword == null ? null : searchKeyword.trim();
     }
 
     public String getAccount() {

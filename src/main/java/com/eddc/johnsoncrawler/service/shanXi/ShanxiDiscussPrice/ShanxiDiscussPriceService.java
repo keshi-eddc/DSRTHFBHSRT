@@ -1,6 +1,6 @@
-package com.eddc.johnsoncrawler.service.ShanxiDiscussPrice;
+package com.eddc.johnsoncrawler.service.shanXi.ShanxiDiscussPrice;
 
-import com.eddc.johnsoncrawler.model.ShanxiDiscussPrice;
+import com.eddc.johnsoncrawler.model.shanXi.ShanxiDiscussPrice;
 
 public interface ShanxiDiscussPriceService {
     // 增

@@ -1,8 +1,8 @@
-package com.eddc.johnsoncrawler.service.ShanxiDiscussPrice.impl;
+package com.eddc.johnsoncrawler.service.shanXi.ShanxiDiscussPrice.impl;
 
-import com.eddc.johnsoncrawler.mapper.ShanxiDiscussPriceMapper;
-import com.eddc.johnsoncrawler.model.ShanxiDiscussPrice;
-import com.eddc.johnsoncrawler.service.ShanxiDiscussPrice.ShanxiDiscussPriceService;
+import com.eddc.johnsoncrawler.mapper.shanXi.ShanxiDiscussPriceMapper;
+import com.eddc.johnsoncrawler.model.shanXi.ShanxiDiscussPrice;
+import com.eddc.johnsoncrawler.service.shanXi.ShanxiDiscussPrice.ShanxiDiscussPriceService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
