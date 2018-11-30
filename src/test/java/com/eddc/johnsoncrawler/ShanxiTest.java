@@ -25,28 +25,35 @@ public class ShanxiTest {
     @Autowired
     ShanxicatalogueService shanxicatalogueService;
 
-    //挂网目录
+    /*
+     * 陕西省数据抓取说明
+     * 前提： ie浏览器登录http://hcjy.sxsyxcg.com/ ，获得登录后的cookie
+     * 抓取： 1.挂网目录2.议价信息
+     * 频率： 每周三次（周一、周三、周五上午10点）
+     * */
+
+    //1.挂网目录
     @Test
-    public void getShanxiDataTest() {
+    public void getShanxiCatalogueDataTest() {
         Map<String, String> params = new HashMap<>();
         //申报企业名称
         params.put("comname", "强生");
         //登录后的cookie
-        params.put("Cookie", "ASP.NET_SessionId=40v551gpm3xc034twlethn3e");
+        params.put("Cookie", "ASP.NET_SessionId=vgqcebgctqsikf5ifnm05bul");
         //当前的账号名称
         params.put("account", "强生上海");
 //        params.put("account", "迈思强");
         shanXiCrawlerService.getShanxiCatalogueData(params);
     }
 
-    //议价信息
+    //2.议价信息
     @Test
     public void getShanxiDiscussPriceDataTest() {
         Map<String, String> params = new HashMap<>();
         //申报企业名称
         params.put("comname", "强生");
         //登录后的cookie
-        params.put("Cookie", "ASP.NET_SessionId=40v551gpm3xc034twlethn3e");
+        params.put("Cookie", "ASP.NET_SessionId=vgqcebgctqsikf5ifnm05bul");
         //当前的账号名称
         params.put("account", "强生上海");
 
